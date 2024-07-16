@@ -3,18 +3,28 @@
   <head>
     <meta charset="UTF-8" />
  
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
-  </head>
-  <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electron App</title>
+    </head>
+    <body>
+      <h1>Welcome to Electron desl. app</h1>
+      <button id="fetchMessage">Fetch Message</button>
+      <button id="refreshPage">Refresh Page</button>
+      <p id="message"></p>
+    
+      <script>
+        document.getElementById('fetchMessage').addEventListener('click', () => {
+          fetch('http://localhost:5800/api/hello')
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById('message').innerText = data.message;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    
+        document.getElementById('refreshPage').addEventListener('click', () => {
+          location.reload();
+        });
+      </script>
+    </body>
 </html>

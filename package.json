@@ -4,11 +4,21 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": " electron ."
+    "start": " electron .",
+    "dev": "nodemon --exec electron ."
   },
   "author": "Ankit Gupta",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^31.1.0"
+    "electron": "^31.1.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-webpack": "^2.8.2",
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "idb": "^8.0.0",
+    "mongoose": "^8.5.1"
   }
 }
